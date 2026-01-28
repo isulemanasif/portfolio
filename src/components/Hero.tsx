@@ -32,22 +32,8 @@ export default function Hero() {
                         Future Supply Chain Professional
                     </h2>
 
-                    <h1 className="text-5xl md:text-8xl font-black text-white mb-6 tracking-tighter flex flex-wrap justify-center">
-                        {name.split("").map((char, index) => (
-                            <motion.span
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{
-                                    duration: 0.5,
-                                    delay: index * 0.05,
-                                    ease: [0.33, 1, 0.68, 1]
-                                }}
-                                className={char === " " ? "mr-4" : ""}
-                            >
-                                {char}
-                            </motion.span>
-                        ))}
+                    <h1 className="text-5xl md:text-8xl font-black text-white mb-6 tracking-tighter">
+                        MUHAMMAD SULEMAN ASIF
                     </h1>
 
                     <p className="text-gray-300 text-lg md:text-2xl max-w-2xl mx-auto mb-10 font-light">
