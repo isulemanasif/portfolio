@@ -48,7 +48,7 @@ const skills = [
 export default function Skills() {
     return (
         <section id="skills" className="py-24 bg-black relative">
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="container mx-auto px-6 relative z-20">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Core Expertise</h2>
                     <p className="text-gray-400 max-w-2xl mx-auto">
@@ -83,7 +83,7 @@ export default function Skills() {
                                 backgroundColor: "rgba(255, 255, 255, 0.05)",
                                 borderColor: "rgba(59, 130, 246, 0.5)"
                             }}
-                            className="p-8 rounded-2xl border border-white/10 bg-white/5 flex flex-col items-center justify-center text-center backdrop-blur-sm transition-all shadow-xl hover:shadow-blue-500/10 relative z-30"
+                            className="p-8 rounded-2xl border border-white/10 bg-black flex flex-col items-center justify-center text-center backdrop-blur-sm transition-all shadow-xl hover:shadow-blue-500/10 relative z-20"
                         >
                             <div className="mb-6">
                                 {skill.icon}

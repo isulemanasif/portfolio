@@ -6,8 +6,8 @@ import { MapPin, GraduationCap, Languages, BrainCircuit } from "lucide-react";
 
 export default function About() {
     return (
-        <section id="about" className="py-24 bg-zinc-950 relative overflow-hidden">
-            <div className="container mx-auto px-6 relative z-10">
+        <section id="about" className="py-24 bg-zinc-950 relative overflow-hidden z-0">
+            <div className="container mx-auto px-6 relative z-20">
                 <div className="flex flex-col lg:flex-row items-center gap-16">
                     {/* image side */}
                     <motion.div
@@ -18,7 +18,7 @@ export default function About() {
                     >
                         <div className="relative w-full aspect-square max-w-md mx-auto group">
                             <div className="absolute -inset-4 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-                            <div className="relative z-30 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black">
+                            <div className="relative z-20 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black">
                                 <Image
                                     src="/suleman.jpeg"
                                     alt="Muhammad Suleman Asif"
