@@ -10,7 +10,7 @@ export default function Hero() {
             <div className="absolute inset-0 z-0">
                 <Image
                     src="/hero-bg.png"
-                    alt="Logistics Background"
+                    alt="Professional Logistics Background"
                     fill
                     className="object-cover opacity-60"
                     priority
