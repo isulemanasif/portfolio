@@ -43,28 +43,6 @@ const skills = [
             </svg>
         )
     },
-    {
-        name: "IT Knowledge",
-        icon: (
-            <svg viewBox="0 0 24 24" className="w-10 h-10">
-                <rect x="5" y="5" width="14" height="14" rx="2" fill="#9333EA" />
-                <path d="M9 1h2v4H9V1zm4 0h2v4h-2V1zM9 19h2v4H9v-4zm4 0h2v4h-2v-4zM1 9h4v2H1V9zm0 4h4v2H1v-4zM19 9h4v2h-4V9zm0 4h4v2h-4v-4z" fill="#D8B4FE" />
-                <rect x="8" y="8" width="8" height="8" rx="1" fill="white" opacity="0.9" />
-                <path d="M10 10l4 4m0-4l-4 4" stroke="#9333EA" strokeWidth="1.5" />
-            </svg>
-        )
-    },
-    {
-        name: "AI Interest",
-        icon: (
-            <svg viewBox="0 0 24 24" className="w-10 h-10">
-                <circle cx="12" cy="12" r="10" fill="#22D3EE" opacity="0.2" />
-                <path d="M12 4v4m0 8v4M4 12h4m8 0h4m-1.4-6.6l-2.8 2.8m-5.6 5.6l-2.8 2.8m0-11.2l2.8 2.8m5.6 5.6l2.8 2.8" stroke="#22D3EE" strokeWidth="2" strokeLinecap="round" />
-                <circle cx="12" cy="12" r="4" fill="#22D3EE" />
-                <path d="M12 10v4m-2-2h4" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
-            </svg>
-        )
-    },
 ];
 
 export default function Skills() {
@@ -79,7 +57,7 @@ export default function Skills() {
                 </div>
 
                 <motion.div
-                    className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6"
+                    className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6"
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: true, amount: 0.25 }}
