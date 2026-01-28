@@ -3,10 +3,12 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
+import MouseParticles from "@/components/MouseParticles";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white selection:bg-blue-500 selection:text-white">
+      <MouseParticles />
       <Navbar />
       <Hero />
       <About />
