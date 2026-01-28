@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -15,6 +15,21 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Muhammad Suleman Asif | Portfolio",
   description: "BBA Student & Supply Chain Professional Portfolio. Specializing in Logistics, IT, and AI.",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "MSA Portfolio",
+  },
+  formatDetection: {
+    telephone: false,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#000000",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 import Preloader from "@/components/Preloader";
