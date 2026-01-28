@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Magnetic from "./Magnetic";
+import LogisticsScene from "./LogisticsScene";
 
 export default function Hero() {
     const name = "MUHAMMAD SULEMAN ASIF";
@@ -66,23 +67,8 @@ export default function Hero() {
                 </motion.div>
             </div>
 
-            {/* Floating Elements for "Wow" factor */}
-            <motion.div
-                animate={{
-                    y: [0, -20, 0],
-                    rotate: [0, 5, 0]
-                }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-20 right-[10%] w-32 h-32 bg-blue-500/10 rounded-full blur-3xl"
-            />
-            <motion.div
-                animate={{
-                    y: [0, 20, 0],
-                    rotate: [0, -5, 0]
-                }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-20 left-[10%] w-40 h-40 bg-purple-500/10 rounded-full blur-3xl"
-            />
+            {/* Floating 3D Scene */}
+            <LogisticsScene />
         </section>
     );
 }

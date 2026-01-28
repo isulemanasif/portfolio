@@ -34,6 +34,7 @@ export const viewport: Viewport = {
 
 import Preloader from "@/components/Preloader";
 import SmoothScroll from "@/components/SmoothScroll";
+import LiquidTransition from "@/components/LiquidTransition";
 
 export default function RootLayout({
   children,
@@ -46,6 +47,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-blue-500 selection:text-white`}
       >
         <Preloader />
+        <LiquidTransition />
         <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.03] grain-overlay"></div>
         <SmoothScroll>
           {children}
