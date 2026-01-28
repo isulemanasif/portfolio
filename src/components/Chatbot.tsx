@@ -1,6 +1,6 @@
 "use client";
 
-import { useChat } from "ai/react";
+import { useChat } from "@ai-sdk/react";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send, Bot, User, Loader2 } from "lucide-react";
@@ -18,7 +18,7 @@ export default function SulemanGPT() {
     }, [messages, isLoading]);
 
     return (
-        <div className="fixed bottom-6 right-6 z-[9999]">
+        <div className="fixed bottom-6 left-6 z-[9999]">
             {/* Toggle Button */}
             <motion.button
                 whileHover={{ scale: 1.1 }}
@@ -59,7 +59,7 @@ export default function SulemanGPT() {
                         initial={{ opacity: 0, y: 20, scale: 0.9 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.9 }}
-                        className="absolute bottom-20 right-0 w-[350px] md:w-[400px] h-[500px] bg-black border border-white/10 rounded-3xl shadow-2xl overflow-hidden flex flex-col backdrop-blur-xl"
+                        className="absolute bottom-20 left-0 w-[350px] md:w-[400px] h-[500px] bg-black border border-white/10 rounded-3xl shadow-2xl overflow-hidden flex flex-col backdrop-blur-xl"
                     >
                         {/* Header */}
                         <div className="p-6 border-b border-white/10 bg-gradient-to-r from-blue-900/20 to-purple-900/20 flex items-center justify-between">
@@ -104,8 +104,8 @@ export default function SulemanGPT() {
                                             {m.role === "user" ? <User size={16} /> : <Bot size={16} />}
                                         </div>
                                         <div className={`p-4 rounded-2xl text-sm leading-relaxed ${m.role === "user"
-                                                ? "bg-white/5 border border-white/10 text-gray-200"
-                                                : "bg-blue-600/10 border border-blue-500/20 text-blue-100"
+                                            ? "bg-white/5 border border-white/10 text-gray-200"
+                                            : "bg-blue-600/10 border border-blue-500/20 text-blue-100"
                                             }`}>
                                             {m.content}
                                         </div>
