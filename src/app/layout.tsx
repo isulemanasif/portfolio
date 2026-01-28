@@ -46,7 +46,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-blue-500 selection:text-white`}
       >
         <Preloader />
-        <div className="fixed inset-0 z-[999999] pointer-events-none opacity-[0.03] grain-overlay"></div>
+        <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.03] grain-overlay"></div>
         <SmoothScroll>
           {children}
         </SmoothScroll>
