@@ -65,13 +65,6 @@ export default function Preloader() {
 
                     <div className="mt-8 flex flex-col items-center gap-2">
                         <motion.span
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            className="text-white/40 text-[10px] font-bold tracking-[0.3em] uppercase"
-                        >
-                            Experience V3 Luxury
-                        </motion.span>
-                        <motion.span
                             className="text-white font-mono text-lg"
                         >
                             {count.toString().padStart(3, '0')}
