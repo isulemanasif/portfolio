@@ -6,14 +6,15 @@ import Magnetic from "./Magnetic";
 
 export default function Contact() {
     return (
-        <section id="contact" className="py-24 bg-zinc-950">
-            <div className="container mx-auto px-6">
+        <section id="contact" className="py-24 bg-zinc-950 relative z-10">
+            <div className="container mx-auto px-6 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="max-w-3xl mx-auto rounded-3xl overflow-hidden bg-gradient-to-br from-blue-900/40 to-purple-900/40 border border-white/10 backdrop-blur-xl p-12 text-center"
+                    className="max-w-3xl mx-auto rounded-3xl overflow-hidden bg-black border border-white/10 backdrop-blur-xl p-12 text-center relative z-30 shadow-2xl"
                 >
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20 -z-10 opacity-50"></div>
                     <div className="space-y-8">
                         <div>
                             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Let's Connect</h2>
