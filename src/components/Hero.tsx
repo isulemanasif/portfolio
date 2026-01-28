@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Magnetic from "./Magnetic";
 
 export default function Hero() {
+    const name = "MUHAMMAD SULEMAN ASIF";
+
     return (
         <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black">
             {/* Background Image with Overlay */}
@@ -28,9 +31,25 @@ export default function Hero() {
                     <h2 className="text-blue-400 font-bold tracking-widest uppercase mb-4 text-sm md:text-base">
                         Future Supply Chain Professional
                     </h2>
-                    <h1 className="text-5xl md:text-8xl font-black text-white mb-6 tracking-tighter">
-                        MUHAMMAD SULEMAN ASIF
+
+                    <h1 className="text-5xl md:text-8xl font-black text-white mb-6 tracking-tighter flex flex-wrap justify-center">
+                        {name.split("").map((char, index) => (
+                            <motion.span
+                                key={index}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: index * 0.05,
+                                    ease: [0.33, 1, 0.68, 1]
+                                }}
+                                className={char === " " ? "mr-4" : ""}
+                            >
+                                {char}
+                            </motion.span>
+                        ))}
                     </h1>
+
                     <p className="text-gray-300 text-lg md:text-2xl max-w-2xl mx-auto mb-10 font-light">
                         BBA Student | Supply Chain Enthusiast | AI & Tech Innovator
                     </p>
@@ -39,21 +58,25 @@ export default function Hero() {
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.5, duration: 0.5 }}
-                    className="flex flex-col sm:flex-row gap-4 justify-center"
+                    transition={{ delay: 1.5, duration: 0.5 }}
+                    className="flex flex-col sm:flex-row gap-6 justify-center items-center"
                 >
-                    <a
-                        href="#contact"
-                        className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all transform hover:scale-105 shadow-lg shadow-blue-500/30"
-                    >
-                        Hire Me Now
-                    </a>
-                    <a
-                        href="#about"
-                        className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white backdrop-blur-md rounded-full font-bold transition-all border border-white/20"
-                    >
-                        Learn More
-                    </a>
+                    <Magnetic>
+                        <a
+                            href="#contact"
+                            className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all shadow-lg shadow-blue-500/30 block"
+                        >
+                            Hire Me Now
+                        </a>
+                    </Magnetic>
+                    <Magnetic>
+                        <a
+                            href="#about"
+                            className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white backdrop-blur-md rounded-full font-bold transition-all border border-white/20 block"
+                        >
+                            Learn More
+                        </a>
+                    </Magnetic>
                 </motion.div>
             </div>
 

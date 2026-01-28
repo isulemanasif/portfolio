@@ -23,15 +23,34 @@ export default function Skills() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                    {skills.map((skill, index) => (
+                <motion.div
+                    className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6"
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.25 }}
+                    variants={{
+                        hidden: { opacity: 0 },
+                        show: {
+                            opacity: 1,
+                            transition: {
+                                staggerChildren: 0.1,
+                            },
+                        },
+                    }}
+                >
+                    {skills.map((skill) => (
                         <motion.div
                             key={skill.name}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                            whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.05)" }}
-                            className="p-8 rounded-2xl border border-white/10 bg-white/5 flex flex-col items-center justify-center text-center backdrop-blur-sm transition-all"
+                            variants={{
+                                hidden: { opacity: 0, y: 20 },
+                                show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+                            }}
+                            whileHover={{
+                                scale: 1.05,
+                                backgroundColor: "rgba(255, 255, 255, 0.05)",
+                                borderColor: "rgba(59, 130, 246, 0.5)"
+                            }}
+                            className="p-8 rounded-2xl border border-white/10 bg-white/5 flex flex-col items-center justify-center text-center backdrop-blur-sm transition-all shadow-xl hover:shadow-blue-500/10"
                         >
                             <div className="mb-4 p-3 bg-black/50 rounded-xl">
                                 {skill.icon}
@@ -40,7 +59,7 @@ export default function Skills() {
                             <span className="text-gray-500 text-xs mt-1 uppercase tracking-tighter">{skill.category}</span>
                         </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );
