@@ -1,74 +1,121 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 export default function MouseParticles() {
-    const [dots, setDots] = useState<{ id: number; size: number; opacity: number }[]>([]);
-    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-    const containerRef = useRef<HTMLDivElement>(null);
+    const canvasRef = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
-        // Generate 60 dots with varying sizes and opacities
-        const newDots = Array.from({ length: 60 }).map((_, i) => ({
-            id: i,
-            size: Math.random() * 4 + 2, // 2px to 6px
-            opacity: Math.random() * 0.5 + 0.1, // 0.1 to 0.6
-        }));
-        setDots(newDots);
+        const canvas = canvasRef.current;
+        if (!canvas) return;
 
-        const handleMouseMove = (e: MouseEvent) => {
-            setMousePos({ x: e.clientX, y: e.clientY });
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
+
+        let animationFrameId: number;
+        let particles: Particle[] = [];
+        const mouse = { x: 0, y: 0, radius: 150 };
+
+        class Particle {
+            x: number;
+            y: number;
+            baseX: number;
+            baseY: number;
+            size: number;
+            density: number;
+
+            constructor(x: number, y: number) {
+                this.x = x;
+                this.y = y;
+                this.baseX = x;
+                this.baseY = y;
+                this.size = Math.random() * 1.5 + 0.5;
+                this.density = Math.random() * 30 + 1;
+            }
+
+            draw() {
+                if (!ctx) return;
+                ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.closePath();
+                ctx.fill();
+            }
+
+            update() {
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                let forceDirectionX = dx / distance;
+                let forceDirectionY = dy / distance;
+                let maxDistance = mouse.radius;
+                let force = (maxDistance - distance) / maxDistance;
+                let directionX = forceDirectionX * force * this.density;
+                let directionY = forceDirectionY * force * this.density;
+
+                if (distance < mouse.radius) {
+                    this.x -= directionX;
+                    this.y -= directionY;
+                } else {
+                    if (this.x !== this.baseX) {
+                        let dx = this.x - this.baseX;
+                        this.x -= dx / 10;
+                    }
+                    if (this.y !== this.baseY) {
+                        let dy = this.y - this.baseY;
+                        this.y -= dy / 10;
+                    }
+                }
+            }
+        }
+
+        const init = () => {
+            particles = [];
+            const numberOfParticles = (canvas.width * canvas.height) / 8000;
+            for (let i = 0; i < numberOfParticles; i++) {
+                let x = Math.random() * canvas.width;
+                let y = Math.random() * canvas.height;
+                particles.push(new Particle(x, y));
+            }
         };
 
+        const animate = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].draw();
+                particles[i].update();
+            }
+            animationFrameId = requestAnimationFrame(animate);
+        };
+
+        const handleResize = () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            init();
+        };
+
+        const handleMouseMove = (e: MouseEvent) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        };
+
+        window.addEventListener("resize", handleResize);
         window.addEventListener("mousemove", handleMouseMove);
-        return () => window.removeEventListener("mousemove", handleMouseMove);
+
+        handleResize();
+        animate();
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+            window.removeEventListener("mousemove", handleMouseMove);
+            cancelAnimationFrame(animationFrameId);
+        };
     }, []);
 
     return (
-        <div ref={containerRef} className="fixed inset-0 pointer-events-none z-20 overflow-hidden">
-            {dots.map((dot, index) => (
-                <motion.div
-                    key={dot.id}
-                    className="absolute rounded-full bg-blue-400/40 blur-[1px]"
-                    animate={{
-                        x: mousePos.x,
-                        y: mousePos.y,
-                    }}
-                    transition={{
-                        type: "spring",
-                        damping: 15 + Math.random() * 20,
-                        stiffness: 50 + Math.random() * 100,
-                        mass: 0.5 + Math.random() * 1.5,
-                        delay: index * 0.005, // Create a trailing effect
-                    }}
-                    style={{
-                        width: dot.size,
-                        height: dot.size,
-                        opacity: dot.opacity,
-                        left: -dot.size / 2,
-                        top: -dot.size / 2,
-                    }}
-                />
-            ))}
-
-            {/* Central glow */}
-            <motion.div
-                className="absolute w-24 h-24 bg-blue-600/10 rounded-full blur-3xl"
-                animate={{
-                    x: mousePos.x,
-                    y: mousePos.y,
-                }}
-                transition={{
-                    type: "spring",
-                    damping: 30,
-                    stiffness: 200,
-                }}
-                style={{
-                    left: -48,
-                    top: -48,
-                }}
-            />
-        </div>
+        <canvas
+            ref={canvasRef}
+            className="fixed inset-0 pointer-events-none z-20"
+        />
     );
 }
