@@ -1,70 +1,74 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, useSpring, useMotionValue } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
+import { motion } from "framer-motion";
 
 export default function MouseParticles() {
-    const [dots, setDots] = useState<{ id: number; delay: number }[]>([]);
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
+    const [dots, setDots] = useState<{ id: number; size: number; opacity: number }[]>([]);
+    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+    const containerRef = useRef<HTMLDivElement>(null);
 
-    // Mouse move handler
     useEffect(() => {
+        // Generate 60 dots with varying sizes and opacities
+        const newDots = Array.from({ length: 60 }).map((_, i) => ({
+            id: i,
+            size: Math.random() * 4 + 2, // 2px to 6px
+            opacity: Math.random() * 0.5 + 0.1, // 0.1 to 0.6
+        }));
+        setDots(newDots);
+
         const handleMouseMove = (e: MouseEvent) => {
-            mouseX.set(e.clientX);
-            mouseY.set(e.clientY);
+            setMousePos({ x: e.clientX, y: e.clientY });
         };
 
         window.addEventListener("mousemove", handleMouseMove);
         return () => window.removeEventListener("mousemove", handleMouseMove);
-    }, [mouseX, mouseY]);
-
-    // Create random dots on mount
-    useEffect(() => {
-        const newDots = Array.from({ length: 20 }).map((_, i) => ({
-            id: i,
-            delay: Math.random() * 5,
-        }));
-        setDots(newDots);
     }, []);
 
-    const springConfig = { damping: 25, stiffness: 150 };
-    const cursorX = useSpring(mouseX, springConfig);
-    const cursorY = useSpring(mouseY, springConfig);
-
     return (
-        <div className="fixed inset-0 pointer-events-none z-20 overflow-hidden">
-            {/* Primary following dot */}
-            <motion.div
-                className="fixed top-0 left-0 w-4 h-4 rounded-full bg-blue-500/40 blur-md"
-                style={{
-                    x: cursorX,
-                    y: cursorY,
-                    translateX: "-50%",
-                    translateY: "-50%",
-                }}
-            />
-
-            {/* Floating particles that react subtly */}
-            {dots.map((dot) => (
+        <div ref={containerRef} className="fixed inset-0 pointer-events-none z-20 overflow-hidden">
+            {dots.map((dot, index) => (
                 <motion.div
                     key={dot.id}
-                    className="absolute w-1 h-1 bg-white/20 rounded-full"
-                    initial={{
-                        x: Math.random() * 100 + "%",
-                        y: Math.random() * 100 + "%"
-                    }}
+                    className="absolute rounded-full bg-blue-400/40 blur-[1px]"
                     animate={{
-                        y: ["0%", "10%", "0%"],
-                        opacity: [0.2, 0.5, 0.2],
+                        x: mousePos.x,
+                        y: mousePos.y,
                     }}
                     transition={{
-                        duration: 5 + Math.random() * 5,
-                        repeat: Infinity,
-                        delay: dot.delay,
+                        type: "spring",
+                        damping: 15 + Math.random() * 20,
+                        stiffness: 50 + Math.random() * 100,
+                        mass: 0.5 + Math.random() * 1.5,
+                        delay: index * 0.005, // Create a trailing effect
+                    }}
+                    style={{
+                        width: dot.size,
+                        height: dot.size,
+                        opacity: dot.opacity,
+                        left: -dot.size / 2,
+                        top: -dot.size / 2,
                     }}
                 />
             ))}
+
+            {/* Central glow */}
+            <motion.div
+                className="absolute w-24 h-24 bg-blue-600/10 rounded-full blur-3xl"
+                animate={{
+                    x: mousePos.x,
+                    y: mousePos.y,
+                }}
+                transition={{
+                    type: "spring",
+                    damping: 30,
+                    stiffness: 200,
+                }}
+                style={{
+                    left: -48,
+                    top: -48,
+                }}
+            />
         </div>
     );
 }
