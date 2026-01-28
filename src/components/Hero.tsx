@@ -26,18 +26,18 @@ export default function Hero() {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
+                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 >
-                    <h2 className="text-blue-400 font-bold tracking-widest uppercase mb-4 text-sm md:text-base">
+                    <h2 className="text-blue-400 font-bold tracking-[0.4em] uppercase mb-8 text-[10px] md:text-xs opacity-70">
                         Supply Chain & Logistics Professional
                     </h2>
 
-                    <h1 className="text-5xl md:text-8xl font-black text-white mb-6 tracking-tighter">
-                        MUHAMMAD SULEMAN ASIF
+                    <h1 className="text-6xl md:text-9xl font-black text-white mb-8 tracking-tighter leading-[0.85] drop-shadow-[0_15px_15px_rgba(0,0,0,0.8)]">
+                        MUHAMMAD <br className="hidden md:block" /> SULEMAN ASIF
                     </h1>
 
-                    <p className="text-gray-300 text-lg md:text-2xl max-w-2xl mx-auto mb-10 font-light">
-                        BBA Student | Supply Chain Enthusiast | AI & Tech Innovator
+                    <p className="text-gray-400 text-lg md:text-2xl max-w-2xl mx-auto mb-12 font-light tracking-wide leading-relaxed">
+                        Redefining Business Operations <br className="hidden md:block" /> through <span className="text-white">AI Innovation</span> & <span className="text-white">Strategic Logistics</span>
                     </p>
                 </motion.div>
 
