@@ -27,7 +27,7 @@ const projects = [
 export default function Projects() {
     return (
         <section id="projects" className="py-24 bg-black relative">
-            <div className="container mx-auto px-6 relative z-20">
+            <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
@@ -57,7 +57,7 @@ export default function Projects() {
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1, duration: 0.6 }}
                             whileHover={{ y: -10 }}
-                            className="group relative bg-black rounded-3xl p-8 border border-white/10 transition-all hover:bg-zinc-800/80 hover:border-blue-500/50 overflow-hidden z-20 shadow-2xl"
+                            className="group relative bg-black rounded-3xl p-8 border border-white/10 transition-all hover:bg-zinc-800/80 hover:border-blue-500/50 overflow-hidden z-10 shadow-2xl"
                         >
                             {/* Background glow on hover */}
                             <div className="absolute -inset-2 bg-gradient-to-tr from-blue-600/10 to-purple-600/10 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
