@@ -47,8 +47,10 @@ const skills = [
         name: "IT Knowledge",
         icon: (
             <svg viewBox="0 0 24 24" className="w-10 h-10">
-                <path fill="#9333EA" d="M19 15c0 1.1-.9 2-2 2H7c-1.1 0-2-.9-2-2V9c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v6z" />
-                <path fill="white" d="M7 5V3h2v2h2V3h2v2h2V3h2v2m-12 14v2h2v-2h2v2h2v-2h2v2h2v-2" />
+                <rect x="5" y="5" width="14" height="14" rx="2" fill="#9333EA" />
+                <path d="M9 1h2v4H9V1zm4 0h2v4h-2V1zM9 19h2v4H9v-4zm4 0h2v4h-2v-4zM1 9h4v2H1V9zm0 4h4v2H1v-4zM19 9h4v2h-4V9zm0 4h4v2h-4v-4z" fill="#D8B4FE" />
+                <rect x="8" y="8" width="8" height="8" rx="1" fill="white" opacity="0.9" />
+                <path d="M10 10l4 4m0-4l-4 4" stroke="#9333EA" strokeWidth="1.5" />
             </svg>
         )
     },
@@ -56,8 +58,10 @@ const skills = [
         name: "AI Interest",
         icon: (
             <svg viewBox="0 0 24 24" className="w-10 h-10">
-                <path fill="#22D3EE" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
-                <path fill="white" d="M11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93z" />
+                <circle cx="12" cy="12" r="10" fill="#22D3EE" opacity="0.2" />
+                <path d="M12 4v4m0 8v4M4 12h4m8 0h4m-1.4-6.6l-2.8 2.8m-5.6 5.6l-2.8 2.8m0-11.2l2.8 2.8m5.6 5.6l2.8 2.8" stroke="#22D3EE" strokeWidth="2" strokeLinecap="round" />
+                <circle cx="12" cy="12" r="4" fill="#22D3EE" />
+                <path d="M12 10v4m-2-2h4" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
         )
     },
