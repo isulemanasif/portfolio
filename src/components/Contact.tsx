@@ -13,7 +13,7 @@ export default function Contact() {
                             <div>
                                 <h2 className="text-4xl font-bold text-white mb-4">Let's Connect</h2>
                                 <p className="text-gray-400">
-                                    I am open to internship opportunities in Supply Chain. Feel free to reach out for collaborations or just a friendly chat.
+                                    I am open to professional career opportunities in Supply Chain and Logistics. Feel free to reach out for collaborations or potential roles.
                                 </p>
                             </div>
 
