@@ -101,7 +101,7 @@ export default function Skills() {
                                 backgroundColor: "rgba(255, 255, 255, 0.05)",
                                 borderColor: "rgba(59, 130, 246, 0.5)"
                             }}
-                            className="p-8 rounded-2xl border border-white/10 bg-white/5 flex flex-col items-center justify-center text-center backdrop-blur-sm transition-all shadow-xl hover:shadow-blue-500/10"
+                            className="p-8 rounded-2xl border border-white/10 bg-white/5 flex flex-col items-center justify-center text-center backdrop-blur-sm transition-all shadow-xl hover:shadow-blue-500/10 relative z-30"
                         >
                             <div className="mb-6">
                                 {skill.icon}

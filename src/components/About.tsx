@@ -18,7 +18,7 @@ export default function About() {
                     >
                         <div className="relative w-full aspect-square max-w-md mx-auto group">
                             <div className="absolute -inset-4 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-                            <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                            <div className="relative z-30 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
                                 <Image
                                     src="/suleman.jpeg"
                                     alt="Muhammad Suleman Asif"
