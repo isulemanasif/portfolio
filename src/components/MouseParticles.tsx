@@ -71,7 +71,7 @@ export default function MouseParticles() {
 
         const init = () => {
             particles = [];
-            const numberOfParticles = (canvas.width * canvas.height) / 8000;
+            const numberOfParticles = (canvas.width * canvas.height) / 2000;
             for (let i = 0; i < numberOfParticles; i++) {
                 let x = Math.random() * canvas.width;
                 let y = Math.random() * canvas.height;
