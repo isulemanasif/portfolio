@@ -10,7 +10,7 @@ export default function Hero() {
     return (
         <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black">
             {/* Background Image with Overlay */}
-            <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 -z-10">
                 <Image
                     src="/hero-bg.png"
                     alt="Professional Logistics Background"
