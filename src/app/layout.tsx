@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   description: "BBA Student & Supply Chain Professional Portfolio. Specializing in Logistics, IT, and AI.",
 };
 
+import Preloader from "@/components/Preloader";
+import SmoothScroll from "@/components/SmoothScroll";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -25,9 +28,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-blue-500 selection:text-white`}
       >
-        {children}
+        <Preloader />
+        <div className="fixed inset-0 z-[999999] pointer-events-none opacity-[0.03] grain-overlay"></div>
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );
