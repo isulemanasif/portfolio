@@ -29,7 +29,7 @@ export default function Hero() {
                     transition={{ duration: 0.8 }}
                 >
                     <h2 className="text-blue-400 font-bold tracking-widest uppercase mb-4 text-sm md:text-base">
-                        Future Supply Chain Professional
+                        Supply Chain & Logistics Professional
                     </h2>
 
                     <h1 className="text-5xl md:text-8xl font-black text-white mb-6 tracking-tighter">
@@ -52,7 +52,7 @@ export default function Hero() {
                             href="#contact"
                             className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all shadow-lg shadow-blue-500/30 block"
                         >
-                            Hire Me Now
+                            Contact Me
                         </a>
                     </Magnetic>
                     <Magnetic>

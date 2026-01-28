@@ -38,17 +38,17 @@ export default function About() {
                         className="w-full lg:w-1/2 space-y-8"
                     >
                         <div>
-                            <h3 className="text-blue-500 font-semibold mb-2 flex items-center gap-2 uppercase tracking-widest text-sm">
+                            <h4 className="text-blue-500 font-semibold mb-2 flex items-center gap-2 uppercase tracking-widest text-sm">
                                 <BrainCircuit size={18} /> About Me
-                            </h3>
+                            </h4>
                             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                                Passionate BBA Student & <br />Supply Chain Aspirant
+                                Supply Chain Expert & <br />Business Strategist
                             </h2>
                             <p className="text-gray-400 text-lg leading-relaxed">
-                                I am <span className="text-white font-medium">Muhammad Suleman Asif</span>, a dedicated BBA student currently based in <span className="text-white font-medium">Islamabad</span>, originally from the beautiful land of <span className="text-white font-medium">Bannu, KPK</span>.
+                                I am <span className="text-white font-medium">Muhammad Suleman Asif</span>, a results-driven professional currently based in <span className="text-white font-medium">Islamabad</span>, originally from the beautiful land of <span className="text-white font-medium">Bannu, KPK</span>.
                             </p>
                             <p className="text-gray-400 text-lg leading-relaxed mt-4">
-                                With a deep-rooted interest in Supply Chain Management, I am actively seeking an internship to apply my academic knowledge to real-world logistics challenges. I am also fascinated by IT and the transformative power of Artificial Intelligence in modern business.
+                                With a solid foundation in Business Administration and a deep-rooted expertise in Supply Chain Management, I am actively seeking <span className="text-white font-medium">professional career opportunities</span> to contribute my logistics knowledge to large-scale business operations. I am also fascinated by IT and the transformative power of AI in modern industry.
                             </p>
                         </div>
 
